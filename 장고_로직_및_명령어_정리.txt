@@ -1,0 +1,149 @@
+1. 프로젝트를 만들 파일로 들어온다.
+2. 그 파일에서 프로젝트를 만든다.  django-admin startproject  spjt
+3.cd spjt  프로젝트로 이동
+4. python manage.py startapp students  앱 만들기
+5. 프로젝트의 setting에 들어가서 installed_apps에서
+	students.apps.StudentsConfig  // 
+    
+     프로젝트 > 앱 만들고 > 앱 등록하고!!
+     서버 만들고 -> DB만들고 -> 모델 클래스 만들고 -> DB반영하고 
+     ->그다음 라우팅 시작한다!!!
+
+    url등록은 라우팅인데, 라우팅은 서버와 모델 만든 이후에 진행한다.  (플젝 만들고 -> 앱 만들고 -> 앱 등록하고 -> 서버 만들고 -> DB만들고 -> 모델에서 클래스 만들고 -> DB에 반영하고 -> 라우팅 시작한다)
+6. cmd에서 python manage.py runserver   서버 만든다.
+7. python manage.py migrate  DB만든다.
+8. DB 만든 이후에는 관리자 계정 만들어야지
+	python manage.py createsuperuser
+9.이제 students앱의 models (= DB)에 들어가서 class(=table)를 만든다.
+10. class Student(models.Model) :
+s_name = models.CharField(max_length=100)
+s_major = models.CharField(max_length=100)
+s_age = models.IntegerField(default=0)
+s_grade = models.IntegerField(default=0)
+s_gender = models.CharField(max_length=30)
+
+def __str__(self) :
+return self.s_name
+
+11. 클래스 만들었으면 DB에 반영해야한다.
+cmd에  python manage.py makemigrations   / migrate
+
+12. students 앱의 admin에 들어가자. admin에서 Student클래스(=테이블)를 보고싶으니까
+admin.site.register(Student)를 입력한다.  여기서 Student를 import해줘야한다.
+
+13.cmd에서 넣어보자.
+python manage.py shell로 들어가서 
+from students.models 에서 Student를 import하고
+qs = Student(s_name='김구',s_major='수학과',s_age=24,s_grade=3,s_gender='남자')
+qs.save().
+나올 때는 import sys; sys.exit() 하면 된다.
+그리고 db의 변경사항 확인하고 반영한다.
+python manage.py makemigrations,  migrate.
+
+14. 이제 라우팅을 하자.
+일단 프로젝트의 url에 앱으로 가는 경로를 추가해야한다.
+path('students/', include('students.urls')    students경로로 들어오면 students.앱의 urls로 보내라
+path('', 'include('home.urls')  추가된 경로 없이 들어오면 home앱의 urls로 보내라.
+
+15.그럼 students 의 url로 들어가자.
+path('reg/', views.regStudent, name='reg'),  #reg로 들어오면 regStudent 실행해라.
+    # http://127.0.0.1:8000/students/regCon
+    path('regCon/', views.regStuCon, name='regCon'),   #regCon으로 들어오면 regStuCon실행하고.
+    path('regAll/', views.regStuAll, name='regAll'),        #regAll로 들어오면 regStuAll 실행해.
+
+reg로 들어오면 views의 regStudent를 실행한다.
+regCon으로 들어오면  view의 regStuCon을 실행하고. 근데 지금만드는
+걸로는 regCon패쓰로 직접 링크에
+입력해서 들어오는 일은 없다. 만약 직접 입력할거라면 포스트부분을 값이 없어도
+에러가 안나게 post[]가 아니라 post.get()으로 해야한다.
+그리고 직접 링크에 regCon을 넣으면 form으로 받아온 값이 없으니까 뭐가
+추가되지는 않을 거고, 대신 결과로 반환받는 index페이지가 뜬다.
+
+regAll로 들어오면 view의 regStuAll을 실행한다.
+
+
+16. 뷰로 가보자.
+reg path로 들어올때 실행될 regStudent는
+reg.html을 반환한다.
+
+regCon path로 들어올떄 실행될 view regStuCon은
+들어올때 (request)할때 함께 form으로, post방식으로 받은 변수 데이터들을
+다시 변수에 넣고, 그걸 이용해 Student의 오브젝트를 만든다.
+이후 index로 보낸다.
+*앞에 post[ ]방식은 값이 없으면 에러가 뜨는데, 이부분을 주석처리하면
+그냥 바로 regCon을 링크에 넣었떠니 반환하라는 index가 반환됐다.
+
+regAll로 들어오면 실행되는 view의 regStuAll은.
+qs에 Student의 모든 객체를 넣고,
+그걸 context의 딕셔너리의 벨류값으로 태워보낸다.
+리턴할때 stulist.html페이지로 보내는데 이때, context(qs 넣은 거)를 같이 보낸다.
+
+*redirect와 render 차이?
+redirect는 가고자하는 template의 url로 이동한다. post나 form 통과, 아예 새로운 앱으로.
+render는 template이 변경 x. (?) 
+
+17. 이제 템플렛이다. 16번에서 보내는 것들은 reg.html, stulist.html, 그리고 index다.
+
+reg.html에서는  학생등록 페이지를 만든다.
+form을 만드는데, 여기서 입력받은 것은 students앱의 regCon path로 보낸다.
+그러면 view regStuCon메소드가 실행되는데, 입력받은 것들을 통해 Student의 오브젝을 만들고
+저장한다. 이후 index를 반환한다.
+reg.html은 언제가냐? reg path로 들어올때 실행되는 view regStudent 메소드가 reg.html을 반환한다
+
+stuList.html은? regAll로 들어오면  view의 regStuAll 메소드가 실행되는데 이 메소드가
+qs에서 Student의 모든 객체를 담아 stulist에 보내며 stulist를 반환했었다.
+stulist,html은 받아온 stulist 데이터의 나열을 보여준다.
+
+
+
+
+18. 이제 홈 부분 라우팅을 진행하자.
+홈 urls로 가자.
+아무 경로 추가없이 들어오면, view의 index 메소드를 실행한다.
+
+19. 그럼 뷰로 가자.
+뷰에서 index 메소드를 만들어야함.
+context에 변수 얹는 거 연습해볼까?
+변수를 얹어서 index.html과 함께 반환한다.
+
+그럼 템플릿에 index.html 추가하자.
+
+index.html에서
+학생등록페이지.  이건 students에서 reg path였지. (이러면 regStudent메소드가 반환되면서 reg.html페이지를 보여줬었고.)
+학생전체리스트. 누르면 regAll path. 이러면 regStuAll 메소드 반환되며 전체 학생을 qs에 담아서 stulist.html에 보내서 보여줬고.
+관리자페이지. 이건 admin페이지로 이동. 이건 미리 만들어져있음. 
+
+
+
+
+*
+인덱스에서 -> 학생등록페이지 (students/ reg path로 가면)
+regstudent 뷰 실행. = reg html을 보여주는 거.
+
+거기서 
+폼 액션 하면 students:regCon path 실행 ->    regStuCon view 실행
+regStuCon view는 
+받아온 값들을 통해 클래스의 오브젝을 만들고, 첫 화면을 반환한다.
+
+
+
+인덱스에서 전체학생보기 페이지 regAll path로 가면
+regStuAll 뷰를 실행한다 = 클래스의 모든 값들을 리스트로 받아서
+반환할 html에 context로 전송한다.
+
+
+
+그럼 학생 검색은?
+
+인덱스에서 학생 검색 페이지로 가면 students/search path
+stuSearch 뷰를 실행해서- > search.html을 보여준다.
+여기서 값을 입력받아서 폼 액션해서 students/nameSearch path로 보내면
+stuNameSearch뷰를 실행해서 = 받아온 값을 통해 qs를 만들어서 context로
+반환할 html에 전송하자.
+
+
+
+
+*
+render 는 템플릿을 불러오고, redirect 는 URL로 이동합니다.
+ URL 로 이동한다는 건 그 URL 에 맞는 views 가 다시 실행될테고 여기서 render 를 할지 다시 redirect 할지 결정할 것 입니다. 
