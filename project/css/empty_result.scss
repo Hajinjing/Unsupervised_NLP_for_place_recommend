@@ -1,0 +1,36 @@
+@use 'reset';
+
+.container .alert {
+    font-size: 25px;
+  }
+  .cherry {
+    background: rgba(#feeeed, 0.8);
+    font-weight: 600;
+    color: rgba(#ff3399, 0.5);
+    border: 2px solid rgba(#ff3399, 0.5);
+    border-radius: 5px;
+  }
+  .keyword {
+    width: 100%;
+    max-width: 150px;
+    height: 4vh;
+    font-size: 1.2em;
+  }
+  .icon i {
+    color: rgba(#ff3399, 0.5);
+  }
+  .search {
+    width: 40vw;
+  }
+  @media screen and (max-width:568px){
+    .keyword {
+      max-width: 450px;
+      margin: 5px;
+      font-size: 1.5em;
+    }
+  }
+  @media screen and (max-width:800px){
+      .keyword {
+        margin: 2px;
+      }
+  }

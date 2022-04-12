@@ -29,7 +29,7 @@ driver.implicitly_wait(1)
 # driver.get(url)
 time.sleep(0.2)
 #2페이지~500페이지
-for i in range(2,501):
+for i in range(950,951):
     url = tour_page_url.format(i)
     driver.get(url)
     #게시글은 한 페이지에 15게
@@ -37,7 +37,10 @@ for i in range(2,501):
         try:
             driver.find_element_by_xpath(tour_click_xpath2.format(j)).click()
         except:
-            driver.find_element_by_xpath(tour_click_xpath3.format(j)).click()
+            try:
+                driver.find_element_by_xpath(tour_click_xpath3.format(j)).click()
+            except:
+                break
         time.sleep(0.2)
         title = driver.find_element_by_xpath(tour_title_xpath).text
         title = title.replace(',', ' ')
@@ -47,7 +50,7 @@ for i in range(2,501):
         contents.append(content)
         driver.back()
     df = pd.DataFrame({'title':titles, 'contents':contents})
-    df.to_csv('./crawling_data/tour.csv', index=False)
+    df.to_csv('./crawling_data/tour946.csv', index=False)
 print('head:', df.head(2))
 print('tail:', df.tail(2))
 driver.close()
