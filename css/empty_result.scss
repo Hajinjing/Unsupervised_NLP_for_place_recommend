@@ -1,0 +1,32 @@
+@use 'reset';
+
+.container .alert {
+    font-size: 25px;
+  }
+  .keyword {
+    width: 100%;
+    max-width: 150px;
+    height: 4vh;
+    font-size: 1.2em;
+  }
+  .icon i {
+    color: rgba(51, 51, 153);
+  }
+  .search {
+    width: 40vw;
+  }
+  .search::placeholder {
+    color: rgba(51, 51, 153, 0.8);
+  }
+  @media screen and (max-width:568px){
+    .keyword {
+      max-width: 450px;
+      margin: 5px;
+      font-size: 1.5em;
+    }
+  }
+  @media screen and (max-width:800px){
+      .keyword {
+        margin: 2px;
+      }
+  }
