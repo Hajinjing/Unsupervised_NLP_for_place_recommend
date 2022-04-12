@@ -1,0 +1,47 @@
+body {
+  margin: auto;
+  width: 100vw;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+.cherry {
+  background: rgba(254, 238, 237, 0.8);
+  font-weight: 600;
+  color: rgba(255, 51, 153, 0.5);
+  border: 2px solid rgba(255, 51, 153, 0.5);
+  border-radius: 5px;
+}
+
+.result {
+  width: 30vw;
+  height: 5vh;
+}
+
+.result div {
+  min-width: 160px;
+}
+
+.flex-shrink-0 img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+div .item {
+  font-size: 1.2em;
+  max-width: 120px;
+  min-width: 95px;
+  max-height: 42px;
+}
+
+.plus {
+  display: block;
+  margin: auto;
+  width: 8vw;
+  min-width: 150px;
+  height: 5vh;
+  padding: 10px;
+  text-align: center;
+}/*# sourceMappingURL=search_result.css.map */
