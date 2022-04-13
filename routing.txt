@@ -1,7 +1,5 @@
-# Unsupervised_NLP_for_place_recommend
 
 
-## routing
 
 
 ### 1. search_place_main  ->  search_place_result
