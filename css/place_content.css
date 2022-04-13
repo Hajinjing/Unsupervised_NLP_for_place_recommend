@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   margin: auto;
   width: 100vw;
@@ -37,8 +38,42 @@ div {
   text-align: center;
 }
 
+div .item {
+  font-size: 1.2em;
+  max-width: 120px;
+  min-width: 95px;
+  max-height: 42px;
+}
+
+.small-img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  max-width: 100px;
+}
+
+.plus {
+  display: block;
+  margin: auto;
+  width: 8vw;
+  min-width: 150px;
+  height: 5vh;
+  padding: 10px;
+  text-align: center;
+}
+
+/* 오른쪽 버튼 크기 */
+.btsize {
+  width: 97px;
+}
+
+h5 {
+  text-align: center;
+}
+
 @media screen and (max-width: 568px) {
   .park {
     margin-bottom: 30px;
   }
-}/*# sourceMappingURL=place_recommend.css.map */
+}/*# sourceMappingURL=place_content.css.map */
