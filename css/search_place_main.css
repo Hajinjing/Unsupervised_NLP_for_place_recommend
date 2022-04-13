@@ -7,6 +7,10 @@ div {
   box-sizing: border-box;
 }
 
+.container .alert {
+  font-size: 25px;
+}
+
 .cherry {
   background: rgba(151, 203, 255, 0.5);
   font-weight: 600;
@@ -15,23 +19,11 @@ div {
   border-radius: 5px;
 }
 
-.container .alert {
-  font-size: 25px;
-}
-
 .keyword {
   width: 100%;
   max-width: 150px;
   height: 4vh;
   font-size: 1.2em;
-}
-
-.icon i {
-  color: rgb(51, 51, 153);
-}
-
-.search {
-  width: 40vw;
 }
 
 .search::-moz-placeholder {
@@ -46,6 +38,14 @@ div {
   color: rgba(51, 51, 153, 0.8);
 }
 
+.icon i {
+  color: rgb(51, 51, 153);
+}
+
+.search {
+  width: 40vw;
+}
+
 @media screen and (max-width: 568px) {
   .keyword {
     max-width: 450px;
@@ -57,4 +57,4 @@ div {
   .keyword {
     margin: 2px;
   }
-}/*# sourceMappingURL=empty_result.css.map */
+}/*# sourceMappingURL=search_place_main.css.map */
