@@ -14,7 +14,11 @@ def getRecommendation(cosine_sim):
                       reverse=True)
     simScore = simScore[1:11]
     touridx = [i[0] for i in simScore]
-    recTourList = df_contents.iloc[touridx, :]
+
+    # recTourList = df_contents.iloc[touridx]    #print용 코드
+    # return recTourList.iloc[:,0]
+
+    recTourList = df_contents.iloc[touridx, :]   #to_json용 코드
     return recTourList
 
 Tfidf_matrix = mmread('./models/Tfidf_tour.mtx').tocsr()
