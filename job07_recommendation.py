@@ -14,8 +14,8 @@ def getRecommendation(cosine_sim):
                       reverse=True)
     simScore = simScore[1:11]
     touridx = [i[0] for i in simScore]
-    recTourList = df_contents.iloc[touridx]
-    return recTourList.iloc[:, 0]
+    recTourList = df_contents.iloc[touridx, :]
+    return recTourList
 
 Tfidf_matrix = mmread('./models/Tfidf_tour.mtx').tocsr()
 with open('./models/tfidf01.pickle', 'rb') as f:
@@ -46,13 +46,6 @@ cosine_sim = linear_kernel(sentence_vec, Tfidf_matrix)
 
 # cosine_sim = linear_kernel(Tfidf_matrix[tour_idx], Tfidf_matrix)
 recommendation = getRecommendation(cosine_sim)
-
-print(recommendation)
-
-
-
-
-
-
-
-
+recommendation.info()
+print(type(recommendation))
+recommendation.to_json('./output/recommendation.json') #제이슨파일 생성
