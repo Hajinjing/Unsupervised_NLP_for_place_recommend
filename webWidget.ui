@@ -31,11 +31,17 @@
    <property name="layoutDirection">
     <enum>Qt::LeftToRight</enum>
    </property>
+   <property name="frameShape">
+    <enum>QFrame::NoFrame</enum>
+   </property>
    <property name="placeholderText">
     <string>어떤 컨셉의 여행지를 찾아드릴까요?</string>
    </property>
   </widget>
   <widget class="QPushButton" name="btn_recommend">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>890</x>
@@ -52,8 +58,24 @@
      <bold>true</bold>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(255, 255, 255)</string>
+   </property>
    <property name="text">
-    <string>검색</string>
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>button.png</normaloff>button.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>64</width>
+     <height>64</height>
+    </size>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
    </property>
   </widget>
   <widget class="QWidget" name="verticalLayoutWidget">
