@@ -9,15 +9,21 @@ div {
   font-size: 25px;
 }
 .cherry {
-  background: rgba(151, 203, 255, 0.5);
+  background: rgba(151, 203, 255, 0.2);
   font-weight: 600;
   color: rgba(51, 51, 153, 0.8);
-  border: 2px solid rgba(51, 51, 153, 0.5);
+  border: 2px solid rgba(51, 51, 153, 0.9);
   border-radius: 5px;
+}
+.cherry1 {
+  font-weight: 600;
+  color: rgba(57, 77, 163, 0.8);
+  border: 1px solid rgba(58, 123, 184, 0.9);
+  border-radius: 20px;
 }
 .keyword {
   width: 100%;
-  max-width: 150px;
+  max-width: 120px;
   height: 4vh;
   font-size: 1.2em;
 }

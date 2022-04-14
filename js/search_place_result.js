@@ -6,18 +6,20 @@ $.get('../output/recommendation.json')
         var template = `
         <div class="row col-md-6 mt-2 mb-2 items">
           <div class="col-md-6 flex-shrink-0">
-            <h5>`+ data.title[key_list[i]] +`</h5>
-            <img src="../image/parkimg.jpeg" alt="...">
+            <a href="../html/place_content.html">`+ data.title[key_list[i]] +`</a>
+            <a href="../html/place_content.html">
+              <img src="../image/parkimg.jpeg" alt="...">
+            </a>
           </div>
-          <div class="row col-md-6 flex-grow-1">
-            <div class="col-md-6 cherry item">자전거</div>
-            <div class="col-md-6 cherry item">갯벌</div>
-            <div class="col-md-6 cherry item">생태공원</div>
-            <div class="col-md-6 cherry item">갯벌</div>
-            <div class="col-md-6 cherry item">체험교육</div>
-            <div class="col-md-6 cherry item">갯벌</div>
-            <div class="col-md-6 cherry item">갯벌</div>
-            <div class="col-md-6 cherry item">자전거</div>
+          <div class="row col-md-6 flex-grow-1 justify-content-center text-center">
+            <div class="col-md-6 cherry1 item p-1"><span class="align-text-top">자전거</span></div>
+            <div class="col-md-6 cherry1 item p-1"><span class="align-text-top">갯벌</span></div>
+            <div class="col-md-6 cherry1 item p-1"><span class="align-text-top">생태공원</span></div>
+            <div class="col-md-6 cherry1 item p-1"><span class="align-text-top">갯벌</span></div>
+            <div class="col-md-6 cherry1 item p-1"><span class="align-text-top">체험교육</span></div>
+            <div class="col-md-6 cherry1 item p-1"><span class="align-text-top">갯벌</span></div>
+            <div class="col-md-6 cherry1 item p-1"><span class="align-text-top">갯벌</span></div>
+            <div class="col-md-6 cherry1 item p-1"><span class="align-text-top">자전거</span></div>
           </div>
         </div>`;
         if (i >= 4) {
@@ -35,17 +37,23 @@ $.get('../output/recommendation.json')
 
 let idx = 4;
 $('.plus').on('click',function(){
-  console.log(idx);
-  if (idx == 10){
-    $('.plus').fadeIn();
-    $('.plus').removeAttr('style');
-    $('.plus').hide();
-  }
+  // console.log($('.items').eq(idx));
   
   for (var j=idx; j<(idx+2); j++){
     $('.items').eq(j).fadeIn();
     $('.items').eq(j).removeAttr('style');
     $('.items').eq(j).removeClass('items-hide');
+    if ($('.items').eq(-1)){
+      $('.plus').fadeIn();
+      $('.plus').removeAttr('style');
+      $('.plus').hide();
+    }else {
+      continue;
+    }
   }
   idx += 2;
+})
+
+$('img').on('click',function(){
+  location.href="../html/place_content.html";
 })

@@ -1,32 +1,50 @@
-@use 'reset';
-
+body {
+  margin: auto;
+  width: 100vw;
+}
+div {
+  box-sizing: border-box;
+}
 .container .alert {
-    font-size: 25px;
-  }
+  font-size: 25px;
+}
+.cherry {
+  background: rgba(151, 203, 255, 0.2);
+  font-weight: 600;
+  color: rgba(51, 51, 153, 0.8);
+  border: 2px solid rgba(51, 51, 153, 0.9);
+  border-radius: 5px;
+}
+.cherry1 {
+  font-weight: 600;
+  color: rgba(57, 77, 163, 0.8);
+  border: 1px solid rgba(58, 123, 184, 0.9);
+  border-radius: 20px;
+}
+.keyword {
+  width: 100%;
+  max-width: 120px;
+  height: 4vh;
+  font-size: 1.2em;
+}
+.search::placeholder {
+  color: rgba(51, 51, 153, 0.8);
+}
+.icon i {
+  color: rgba(51, 51, 153);
+}
+.search {
+  width: 40vw;
+}
+@media screen and (max-width:568px){
   .keyword {
-    width: 100%;
-    max-width: 150px;
-    height: 4vh;
-    font-size: 1.2em;
+    max-width: 450px;
+    margin: 5px;
+    font-size: 1.5em;
   }
-  .icon i {
-    color: rgba(51, 51, 153);
-  }
-  .search {
-    width: 40vw;
-  }
-  .search::placeholder {
-    color: rgba(51, 51, 153, 0.8);
-  }
-  @media screen and (max-width:568px){
+}
+@media screen and (max-width:800px){
     .keyword {
-      max-width: 450px;
-      margin: 5px;
-      font-size: 1.5em;
+      margin: 2px;
     }
-  }
-  @media screen and (max-width:800px){
-      .keyword {
-        margin: 2px;
-      }
-  }
+}
