@@ -14,13 +14,17 @@
 <body>
   <div class="container p-5">
     <!-- 주변 숙소 보러가기 -->
-    <div class="d-flex flex-row" style="max-width: 500px;">
+    <div class="d-flex flex-row justify-content-between">
       <!-- specific_place_name -->
-      <div class="col-lg-4 keyword me-2">서울대공원</div>
+      <div class="col-3 keyword me-2">서울대공원</div>
       <!-- scroll_btn -->
-      <button type="button" class="col-md-8 btn btn-outline-success">
+      <button type="button" class="col-3 btn btn-outline-success">
         주변 숙소 보러가기
       </button>
+      <div class="col-3 flex-grow-1"></div>
+      <div class="col-3">
+        <i class="fas fa-home ms-3 fa-3x home"></i>
+      </div>
     </div>
     <br>
     <!-- 워드 클라우드 -->
@@ -99,13 +103,11 @@
 
   <!-- 주변 숙소 예약하기 -->
   <div class="container p-5">
-    <div class="d-flex flex-row" style="max-width: 500px;">
+    <div class="d-flex flex-row">
       <!-- specific_place_name -->
-      <div class="col-lg-4 keyword me-2">서울대공원</div>
+      <div class="col-lg-8 keyword me-2">서울대공원 주변 숙소 예약하기</div>
       <!-- fix_sentence -->
-      <button type="button" class="col-md-8 btn btn-outline-success">
-        주변 숙소 예약하기
-      </button>
+      <div class="col-md-4"></div>
     </div>
     <br><br>
     <!-- 6개 이미지 -->
@@ -248,5 +250,16 @@
       </div>
     </div>
   </div>
+
+  <script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+
+  <script>
+    $('.home').on('click',function(){
+      location.href="../html/search_place_main.html";
+    })
+  </script>
 </body>
 </html>

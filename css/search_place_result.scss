@@ -1,4 +1,7 @@
 @use 'reset';
+:root {
+  scroll-behavior: auto;
+}
 .result {
   width: 30vw;
   height: 5vh;
@@ -13,6 +16,9 @@
   border-radius: 40px;
   cursor: pointer;
 }
+.home {
+  cursor: pointer;
+}
 a:link {
   color:black;
   text-decoration: none;
@@ -24,6 +30,10 @@ a:visited {
 a:hover {
   color:black;
   text-decoration: none;
+}
+.item-title {
+  font-weight: 700;
+  font-size: 25px;
 }
 div .item {
   font-size: 1em;
