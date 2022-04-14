@@ -6,7 +6,7 @@ $.get('../output/recommendation.json')
         var template = `
         <div class="row col-md-6 mt-2 mb-2 items">
           <div class="col-md-6 flex-shrink-0">
-            <a href="../html/place_content.html">`+ data.title[key_list[i]] +`</a>
+            <a class="item-title" href="../html/place_content.html">`+ data.title[key_list[i]] +`</a>
             <a href="../html/place_content.html">
               <img src="../image/parkimg.jpeg" alt="...">
             </a>
@@ -53,7 +53,9 @@ $('.plus').on('click',function(){
   }
   idx += 2;
 })
-
+$('div i').on('click',function(){
+  location.href="../html/search_place_main.html";
+})
 $('img').on('click',function(){
   location.href="../html/place_content.html";
 })
