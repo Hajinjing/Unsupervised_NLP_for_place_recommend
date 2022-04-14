@@ -101,3 +101,5 @@ app = QApplication(sys.argv)
 mainWindow = Exam()
 mainWindow.show()
 sys.exit(app.exec_())
+
+
