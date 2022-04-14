@@ -14,23 +14,25 @@
   <div class="container p-5">
     <!-- xx로 검색한 여행지에요 -->
     <div class="d-flex flex-row result">
-      <!-- search_keyword -->
-      <!-- search_place_main에서 받아온 search_keyword-->
-      <div class="col-md-3 p-2 cherry">sdfsdfds</div>
-      <!-- fix_sentence -->
-      <div class="col-md-9 p-2 cherry">로 검색한 여행지에요.</div>
-    </div>
-    <!-- 서울대공원 x4 -->
+       <!-- search_keyword -->
+       <!-- search_place_main에서 받아온 search_keyword -->
+      <!-- <div class="col-md-3 p-2 cherry">sdfsdfds</div> -->
+       <!-- fix_sentence -->
+      <!-- <div class="col-md-9 p-2 cherry">로 검색한 여행지에요.</div> -->
+    </div> 
+
+    <!-- 서울대공원 샘플 -->
     <div class="d-flex row p-3">
+      <!--
       <div class="row col-md-6 mt-2 mb-2">
         <div class="col-md-6 flex-shrink-0">
-          <!-- specific_place_name -->
+           specific_place_name 
           <h5>서울대공원</h5>
-          <!-- specific_place_img -->
+           specific_place_img 
           <img src="../image/parkimg.jpeg" alt="...">
         </div>
         <div class="row col-md-6 flex-grow-1">
-          <!-- place_explain_word -->
+           place_explain_word 
           <div class="col-md-6 cherry item">자전거</div>
           <div class="col-md-6 cherry item">갯벌</div>
           <div class="col-md-6 cherry item">생태공원</div>
@@ -40,63 +42,19 @@
           <div class="col-md-6 cherry item">갯벌</div>
           <div class="col-md-6 cherry item">자전거</div>
         </div>
-      </div>
+      </div> -->
 
-      <div class="row col-md-6 mt-2 mb-2">
-        <div class="col-md-6 flex-shrink-0">
-          <h5>인천대공원</h5>
-          <img src="../image/parkimg.jpeg" alt="...">
-        </div>
-        <div class="row col-md-6 flex-grow-1">
-            <div class="col-md-6 cherry item">자전거</div>
-            <div class="col-md-6 cherry item">갯벌</div>
-            <div class="col-md-6 cherry item">생태공원</div>
-            <div class="col-md-6 cherry item">갯벌</div>
-            <div class="col-md-6 cherry item">체험교육</div>
-            <div class="col-md-6 cherry item">갯벌</div>
-            <div class="col-md-6 cherry item">갯벌</div>
-            <div class="col-md-6 cherry item">자전거</div>
-          </div>
-      </div>
-
-      <div class="row col-md-6 mt-2 mb-2">
-        <div class="col-md-6 flex-shrink-0">
-          <h5>서울식물원</h5>
-          <img src="../image/parkimg.jpeg" alt="...">
-        </div>
-        <div class="row col-md-6 flex-grow-1">
-            <div class="col-md-6 cherry item">자전거</div>
-            <div class="col-md-6 cherry item">갯벌</div>
-            <div class="col-md-6 cherry item">생태공원</div>
-            <div class="col-md-6 cherry item">갯벌</div>
-            <div class="col-md-6 cherry item">체험교육</div>
-            <div class="col-md-6 cherry item">갯벌</div>
-            <div class="col-md-6 cherry item">갯벌</div>
-            <div class="col-md-6 cherry item">자전거</div>
-          </div>
-      </div>
-
-      <div class="row col-md-6 mt-2 mb-2">
-        <div class="col-md-6 flex-shrink-0">
-          <h5>서울대공원</h5>
-          <img src="../image/parkimg.jpeg" alt="...">
-        </div>
-        <div class="row col-md-6 flex-grow-1">
-            <div class="col-md-6 cherry item">자전거</div>
-            <div class="col-md-6 cherry item">갯벌</div>
-            <div class="col-md-6 cherry item">생태공원</div>
-            <div class="col-md-6 cherry item">갯벌</div>
-            <div class="col-md-6 cherry item">체험교육</div>
-            <div class="col-md-6 cherry item">갯벌</div>
-            <div class="col-md-6 cherry item">갯벌</div>
-            <div class="col-md-6 cherry item">자전거</div>
-          </div>
-      </div>
     </div>
-    <br><br><br><br>
-    <br><br><br><br>
+    <br><br>
     <!-- show_more(더보기) -->
-    <div class="cherry plus">더보기 +</div>
+    <button class="cherry plus">더보기 +</button>
   </div>
+
+  <script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+
+  <script src="../js/search_place_result.js"></script>
 </body>
 </html>
