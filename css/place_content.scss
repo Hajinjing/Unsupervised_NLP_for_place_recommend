@@ -19,7 +19,7 @@
   text-align: center;
 }
 div .item {
-  font-size: 1.2em;
+  font-size: 1em;
   max-width: 120px;
   min-width: 95px;
   max-height: 42px;
@@ -43,8 +43,9 @@ div .item {
 .btsize {
   width: 97px;
 }
-h5 {
+h4 {
   text-align: center;
+  font-weight: 700;
 }
 
 @media screen and (max-width:568px){

@@ -12,8 +12,15 @@ div {
   background: rgba(151, 203, 255, 0.5);
   font-weight: 600;
   color: rgba(51, 51, 153, 0.8);
-  border: 2px solid rgba(51, 51, 153, 0.5);
+  border: 2px solid rgba(51, 51, 153, 0.9);
   border-radius: 5px;
+}
+
+.cherry1 {
+  font-weight: 600;
+  color: rgba(57, 77, 163, 0.8);
+  border: 1px solid rgba(58, 123, 184, 0.9);
+  border-radius: 20px;
 }
 
 .keyword {
@@ -39,7 +46,7 @@ div {
 }
 
 div .item {
-  font-size: 1.2em;
+  font-size: 1em;
   max-width: 120px;
   min-width: 95px;
   max-height: 42px;
@@ -68,8 +75,9 @@ div .item {
   width: 97px;
 }
 
-h5 {
+h4 {
   text-align: center;
+  font-weight: 700;
 }
 
 @media screen and (max-width: 568px) {
