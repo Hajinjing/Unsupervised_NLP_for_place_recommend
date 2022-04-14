@@ -43,7 +43,7 @@ class Exam(QWidget, form_window):
     #검색버튼함수
     def btn_recommend_slot(self):
         sentence = self.te_keyword.toPlainText()
-        print(sentence)
+        print('입력됨:',sentence)
         input_words = sentence.split()
         if len(input_words) >= 10:
             sentence_vec = self.Tfidf.transform([sentence])
@@ -51,6 +51,17 @@ class Exam(QWidget, form_window):
             self._webview.load(QUrl('http://localhost:63342/Unsupervised_NLP_for_place_recommend2/html/search_place_result.html?_ijt=95tk70fdqitcn4f7rq1o6ufcks&_ij_reload=RELOAD_ON_SAVE'))
             self.te_keyword.hide()
             self.btn_recommend.hide()
+        elif input_words[0] in list(self.df_contents.title):
+            tour_idx = self.df_contents[self.df_contents['title'] == input_words[0]].index[0]
+            print(tour_idx)
+            cosine_sim = linear_kernel(self.Tfidf_matrix[tour_idx], self.Tfidf_matrix)
+            recommendation_titles = self.getRecommendation(cosine_sim)
+            recommendation_titles.to_json('./output/recommendation.json')
+            self._webview.load(QUrl(
+                'http://localhost:63342/Unsupervised_NLP_for_place_recommend2/html/search_place_result.html?_ijt=95tk70fdqitcn4f7rq1o6ufcks&_ij_reload=RELOAD_ON_SAVE'))
+            self.te_keyword.hide()
+            self.btn_recommend.hide()
+
         else:
             key_word = input_words[0]
             print('키워드:',key_word)

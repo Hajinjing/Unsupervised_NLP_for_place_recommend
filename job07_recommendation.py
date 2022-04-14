@@ -15,22 +15,22 @@ def getRecommendation(cosine_sim):
     simScore = simScore[1:11]
     touridx = [i[0] for i in simScore]
 
-    # recTourList = df_contents.iloc[touridx]    #print용 코드
-    # return recTourList.iloc[:,0]
+    recTourList = df_contents.iloc[touridx]    #print용 코드
+    return recTourList.iloc[:,0]
 
-    recTourList = df_contents.iloc[touridx, :]   #to_json용 코드
-    return recTourList
+    # recTourList = df_contents.iloc[touridx, :]   #to_json용 코드
+    # return recTourList
 
 Tfidf_matrix = mmread('./models/Tfidf_tour.mtx').tocsr()
 with open('./models/tfidf01.pickle', 'rb') as f:
     Tfidf = pickle.load(f)
 
-# # 영화 제목을 이용
-# tour_idx = df_contents[df_contents['title']=='서울대공원'].index[0]
-# print(tour_idx)
+# 영화 제목을 이용
+tour_idx = df_contents[df_contents['title']=='서울대공원'].index[0]
+print(tour_idx)
 # 영화 index를 이용
 # movie_idx = 566
-# print(df_reviews.iloc[movie_idx, 0])
+print(df_contents.iloc[tour_idx, 0])
 
 # key_word 이용
 embedding_model = Word2Vec.load('./models/word2vecModel.model')
@@ -46,10 +46,10 @@ for i, word in enumerate(words):
 sentence = ' '.join(sentence)
 sentence = '데이트'
 sentence_vec = Tfidf.transform([sentence])
-cosine_sim = linear_kernel(sentence_vec, Tfidf_matrix)
+# cosine_sim = linear_kernel(sentence_vec, Tfidf_matrix)
 
-# cosine_sim = linear_kernel(Tfidf_matrix[tour_idx], Tfidf_matrix)
+cosine_sim = linear_kernel(Tfidf_matrix[tour_idx], Tfidf_matrix)
 recommendation = getRecommendation(cosine_sim)
-recommendation.info()
-print(type(recommendation))
-recommendation.to_json('./output/recommendation.json') #제이슨파일 생성
+# recommendation.info()
+print(recommendation)
+recommendation.to_json('./output/recommendation2.json') #제이슨파일 생성
