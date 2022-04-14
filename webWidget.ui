@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>943</width>
+    <width>1330</width>
     <height>741</height>
    </rect>
   </property>
@@ -16,33 +16,53 @@
   <widget class="QTextEdit" name="te_keyword">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>40</y>
-     <width>551</width>
+     <x>310</x>
+     <y>240</y>
+     <width>571</width>
      <height>51</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Arial Black</family>
+     <pointsize>19</pointsize>
+    </font>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="placeholderText">
+    <string>어떤 컨셉의 여행지를 찾아드릴까요?</string>
    </property>
   </widget>
   <widget class="QPushButton" name="btn_recommend">
    <property name="geometry">
     <rect>
-     <x>640</x>
-     <y>40</y>
-     <width>211</width>
+     <x>890</x>
+     <y>240</y>
+     <width>91</width>
      <height>51</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Arial Black</family>
+     <pointsize>15</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
    <property name="text">
-    <string>PushButton</string>
+    <string>검색</string>
    </property>
   </widget>
   <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>10</y>
-     <width>911</width>
-     <height>621</height>
+     <x>0</x>
+     <y>0</y>
+     <width>1331</width>
+     <height>741</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="web"/>
