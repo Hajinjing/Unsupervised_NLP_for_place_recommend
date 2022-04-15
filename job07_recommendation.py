@@ -26,7 +26,7 @@ with open('./models/tfidf01.pickle', 'rb') as f:
     Tfidf = pickle.load(f)
 
 # 영화 제목을 이용
-tour_idx = df_contents[df_contents['title']=='서울대공원'].index[0]
+tour_idx = df_contents[df_contents['title']=='명동'].index[0]
 print(tour_idx)
 # 영화 index를 이용
 # movie_idx = 566

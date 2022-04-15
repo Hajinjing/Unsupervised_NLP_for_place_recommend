@@ -39,6 +39,13 @@ class Exam(QWidget, form_window):
         with open('./models/tfidf01.pickle', 'rb') as f:
             self.Tfidf = pickle.load(f)
         self.btn_recommend.clicked.connect(self.btn_recommend_slot)
+        self.home_button.clicked.connect(self.btn_home_slot)
+        # self.commandLinkButton.clicked.connect(self.btn_home_slot)
+
+    def btn_home_slot(self):
+        self._webview.load(QUrl('http://localhost:63342/Unsupervised_NLP_for_place_recommend2/html/search_place_main.html?_ijt=8qjrtd7rv06g0t2osit3t9d8eh&_ij_reload=RELOAD_ON_SAVE'))
+        self.te_keyword.show()
+        self.btn_recommend.show()
 
     #검색버튼함수
     def btn_recommend_slot(self):

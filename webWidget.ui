@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1330</width>
-    <height>741</height>
+    <width>1432</width>
+    <height>875</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,7 +16,7 @@
   <widget class="QTextEdit" name="te_keyword">
    <property name="geometry">
     <rect>
-     <x>310</x>
+     <x>380</x>
      <y>240</y>
      <width>571</width>
      <height>51</height>
@@ -57,7 +57,7 @@ text-align:center;
    </property>
    <property name="geometry">
     <rect>
-     <x>890</x>
+     <x>980</x>
      <y>240</y>
      <width>91</width>
      <height>51</height>
@@ -96,16 +96,43 @@ fill:rgb(42,169,224);</string>
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>0</y>
-     <width>1331</width>
-     <height>741</height>
+     <y>10</y>
+     <width>1431</width>
+     <height>831</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="web"/>
   </widget>
+  <widget class="QPushButton" name="home_button">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>20</y>
+     <width>41</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(255, 255, 255)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>home.png</normaloff>home.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>35</width>
+     <height>35</height>
+    </size>
+   </property>
+  </widget>
   <zorder>verticalLayoutWidget</zorder>
   <zorder>btn_recommend</zorder>
   <zorder>te_keyword</zorder>
+  <zorder>home_button</zorder>
  </widget>
  <resources/>
  <connections/>
