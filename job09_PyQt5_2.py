@@ -58,6 +58,7 @@ class Exam(QWidget, form_window):
             self._webview.load(QUrl('http://localhost:63342/Unsupervised_NLP_for_place_recommend2/html/search_place_result.html?_ijt=95tk70fdqitcn4f7rq1o6ufcks&_ij_reload=RELOAD_ON_SAVE'))
             self.te_keyword.hide()
             self.btn_recommend.hide()
+            self.te_keyword.clear()
         elif input_words[0] in list(self.df_contents.title):
             tour_idx = self.df_contents[self.df_contents['title'] == input_words[0]].index[0]
             print(tour_idx)
@@ -68,6 +69,7 @@ class Exam(QWidget, form_window):
                 'http://localhost:63342/Unsupervised_NLP_for_place_recommend2/html/search_place_result.html?_ijt=95tk70fdqitcn4f7rq1o6ufcks&_ij_reload=RELOAD_ON_SAVE'))
             self.te_keyword.hide()
             self.btn_recommend.hide()
+            self.te_keyword.clear()
 
         else:
             key_word = input_words[0]
@@ -79,6 +81,7 @@ class Exam(QWidget, form_window):
                 self._webview.load(QUrl('http://localhost:63342/Unsupervised_NLP_for_place_recommend2/html/empty_place_result.html?_ijt=95tk70fdqitcn4f7rq1o6ufcks&_ij_reload=RELOAD_ON_SAVE'))
                 self.te_keyword.show()
                 self.btn_recommend.show()
+                self.te_keyword.clear()
                 return
             sentence = [key_word] * 11
             words = []
@@ -93,6 +96,7 @@ class Exam(QWidget, form_window):
             self._webview.load(QUrl('http://localhost:63342/Unsupervised_NLP_for_place_recommend2/html/search_place_result.html?_ijt=95tk70fdqitcn4f7rq1o6ufcks&_ij_reload=RELOAD_ON_SAVE'))
             self.te_keyword.hide()
             self.btn_recommend.hide()
+            self.te_keyword.clear()
 
 
 
