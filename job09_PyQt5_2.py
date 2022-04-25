@@ -32,7 +32,6 @@ class Exam(QWidget, form_window):
         self.setupUi(self)
         self._webview = WebView()
         self.web.addWidget(self._webview)
-        # self._webview.load(QUrl('http://www.naver.com'))
         self._webview.load(QUrl('http://localhost:63342/Unsupervised_NLP_for_place_recommend2/html/search_place_main.html?_ijt=8qjrtd7rv06g0t2osit3t9d8eh&_ij_reload=RELOAD_ON_SAVE'))
         self.df_contents = pd.read_csv('./refined_data/cleaned_data.csv')
         self.Tfidf_matrix = mmread('./models/Tfidf_tour.mtx').tocsr()
@@ -40,7 +39,6 @@ class Exam(QWidget, form_window):
             self.Tfidf = pickle.load(f)
         self.btn_recommend.clicked.connect(self.btn_recommend_slot)
         self.home_button.clicked.connect(self.btn_home_slot)
-        # self.commandLinkButton.clicked.connect(self.btn_home_slot)
 
     def btn_home_slot(self):
         self._webview.load(QUrl('http://localhost:63342/Unsupervised_NLP_for_place_recommend2/html/search_place_main.html?_ijt=8qjrtd7rv06g0t2osit3t9d8eh&_ij_reload=RELOAD_ON_SAVE'))
@@ -50,11 +48,15 @@ class Exam(QWidget, form_window):
     #검색버튼함수
     def btn_recommend_slot(self):
         sentence = self.te_keyword.toPlainText()
-        print('입력됨:',sentence)
-        input_words = sentence.split()
-        if len(input_words) >= 10:
+        print('입력됨:',sentence, len(sentence))
+        input_words = sentence.split() #입력된 문장을 리스트로
+        if len(sentence) >= 10:
+            sentence = self.te_keyword.toPlainText()
             sentence_vec = self.Tfidf.transform([sentence])
-            recommendation_titles = self.recommend_by_sentence(sentence)
+            cosine_sim = linear_kernel(sentence_vec,
+                                       self.Tfidf_matrix)
+            recommendation_titles = self.getRecommendation(cosine_sim)
+            recommendation_titles.to_json('./output/recommendation.json')
             self._webview.load(QUrl('http://localhost:63342/Unsupervised_NLP_for_place_recommend2/html/search_place_result.html?_ijt=95tk70fdqitcn4f7rq1o6ufcks&_ij_reload=RELOAD_ON_SAVE'))
             self.te_keyword.hide()
             self.btn_recommend.hide()
@@ -92,7 +94,7 @@ class Exam(QWidget, form_window):
 
             sentence = ' '.join(sentence)
             recommendation_titles = self.recommend_by_sentence(sentence)
-            print('debug01')
+            print('sentence:', sentence)
             self._webview.load(QUrl('http://localhost:63342/Unsupervised_NLP_for_place_recommend2/html/search_place_result.html?_ijt=95tk70fdqitcn4f7rq1o6ufcks&_ij_reload=RELOAD_ON_SAVE'))
             self.te_keyword.hide()
             self.btn_recommend.hide()
@@ -102,11 +104,9 @@ class Exam(QWidget, form_window):
 
     def recommend_by_sentence(self, sentence):
         sentence_vec = self.Tfidf.transform([sentence])
-        cosin_sim = linear_kernel(sentence_vec,
+        cosine_sim = linear_kernel(sentence_vec,
                                   self.Tfidf_matrix)
-        recommendation_titles = self.getRecommendation(cosin_sim)
-        # recommendation_titles = '\n'.join(list(recommendation_titles))
-        # return recommendation_titles
+        recommendation_titles = self.getRecommendation(cosine_sim)
         recommendation_titles.to_json('./output/recommendation.json') #제이슨파일 생성은 이 위치에서?
 
     def getRecommendation(self, cosine_sim):

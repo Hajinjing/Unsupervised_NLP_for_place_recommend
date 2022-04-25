@@ -11,10 +11,12 @@ df_contents = pd.read_csv('./refined_data/cleaned_data.csv')
 # #                   index=False)
 df_contents.info()
 
+#데이터 벡터라이징
 Tfidf = TfidfVectorizer(sublinear_tf=True)
-#sublinear_tf = True  : TF(단어빈도)값의 스무딩(아웃라이어 심한 데이터 스무딩)True or False
+    #sublinear_tf = True  : TF(단어빈도)값의 스무딩(아웃라이어 심한 데이터 스무딩)True or False
 Tfidf_matrix = Tfidf.fit_transform(df_contents['cleaned_sentences'])
-#
+
+#pickle로 저장
 with open('./models/tfidf01.pickle', 'wb') as f:
     pickle.dump(Tfidf, f)
 mmwrite('./models/Tfidf_tour.mtx', Tfidf_matrix)
