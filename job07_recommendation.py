@@ -25,11 +25,10 @@ Tfidf_matrix = mmread('./models/Tfidf_tour.mtx').tocsr()
 with open('./models/tfidf01.pickle', 'rb') as f:
     Tfidf = pickle.load(f)
 
-# 영화 제목을 이용
+# 장소이름을 이용
 # tour_idx = df_contents[df_contents['title']=='명동'].index[0]
 # print(tour_idx)
-# 영화 index를 이용
-# movie_idx = 566
+# index를 이용
 # print(df_contents.iloc[tour_idx, 0])
 
 # key_word 이용
