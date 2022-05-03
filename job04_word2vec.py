@@ -5,7 +5,7 @@ import pandas as pd
 content_word = pd.read_csv('./refined_data/cleaned_data.csv')
 content_word.info()
 
-cleaned_token_content = list(content_word['cleaned_sentences']) #df를 list화 해주는 이유는?
+cleaned_token_content = list(content_word['cleaned_sentences'])
 print(cleaned_token_content[0])
 cleaned_tokens = []
 for sentence in cleaned_token_content:
